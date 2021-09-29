@@ -2,8 +2,6 @@ package avp.com.shop.controllers;
 
 import avp.com.shop.dao.service.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +24,7 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public ModelAndView findCustomerById(@PathVariable(name = "id") Long id) {
-        ModelAndView modelAndView = new ModelAndView("shop/customers/customers/{id}");
+        ModelAndView modelAndView = new ModelAndView("shop/customers/customer");
         modelAndView.addObject("customer", customerService.findCustomerById(id));
         return modelAndView;
     }

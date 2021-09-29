@@ -26,10 +26,13 @@ public class Customer {
 
     @Column(nullable = false, unique = true)
     @NotNull(message = "Enter username please")
-    @Min(value = 5, message = "Name should be more then 5 characters")
+    @Min(value = 2, message = "Name should be more then 5 characters")
     private String userName;
 
+    @NotNull(message = "Phone should not be empty")
+    @Column(nullable = false)
     private String phone;
+
     @Email(message = "Check your email")
     @NotNull(message = "Email should not be empty")
     @Column(nullable = false)
