@@ -34,7 +34,4 @@ public class Customer {
     @NotNull(message = "Email should not be empty")
     @Column(nullable = false)
     private String email;
-
-//    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Cart cart;
 }
