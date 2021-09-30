@@ -1,10 +1,7 @@
 package avp.com.shop.controllers;
 
-import avp.com.shop.beans.Customer;
 import avp.com.shop.dao.service.CartService;
-import avp.com.shop.dao.service.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class CartController {
 
     private final CartService cartService;
-
-//    private final CustomerService customerService;
 
 //    @GetMapping("/{id}")
 //    public ModelAndView showCartById(@PathVariable(name = "id") Long id) {

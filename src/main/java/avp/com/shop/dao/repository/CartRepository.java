@@ -1,7 +1,6 @@
 package avp.com.shop.dao.repository;
 
 import avp.com.shop.beans.Cart;
-import avp.com.shop.beans.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

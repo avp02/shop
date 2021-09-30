@@ -19,6 +19,7 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">Link of moving to customer</th>
+                <th scope="col">Link of moving to customers cart</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,9 @@
                 <td th:text="${customer.getEmail()}">email</td>
                 <td>
                     <a th:href="@{/shop/customers/{id}(id=${customer.getId()})}">Move to customer</a>
+                </td>
+                <td>
+                    <a th:href="@{/shop/carts/{id}(id=${customer.getId()})}">Move to customers cart</a>
                 </td>
             </tr>
         </tbody>
