@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+    <center><h1>Cart of customer</h1></center>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Products</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="productName : ${productNames}">
+                    <td th:text="${userNameCustomer}"></td>
+                    <td th:text="${productName}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
 @Data
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product_photos")
-public class ProductPhoto {
+public class ProductPhoto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
