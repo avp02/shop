@@ -6,31 +6,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
 </head>
 <body>
-<center><h1>Customer</h1></center>
-<div>
-    <table class="table table-success table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">UserName</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
-                <th scope="col">Cart</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td th:text="${customer.getId()}">id</td>
-                <td th:text="${customer.getName()}">id</td>
-                <td th:text="${customer.getUserName()}">id</td>
-                <td th:text="${customer.getPhone()}">id</td>
-                <td th:text="${customer.getEmail()}">id</td>
-                <td>cart</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
+    <center><h1>Customer</h1></center>
+    <br>
+    <div>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Link of moving to customers cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${customer.getId()}">id</td>
+                    <td th:text="${customer.getName()}">name</td>
+                    <td th:text="${customer.getUserName()}">userName</td>
+                    <td th:text="${customer.getPhone()}">phone</td>
+                    <td th:text="${customer.getEmail()}">email</td>
+                    <td>
+                        <a th:href="@{/shop/carts/{id}(id=${customer.getId()})}" th:text="'Move to cart of ' + ${customer.getName()}">Move to customers cart</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/shop/customers}">Back to page with all customers</a>
 </body>
 </html>

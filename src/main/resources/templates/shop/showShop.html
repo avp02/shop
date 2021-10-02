@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+    <center>
+        <h1><div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Welcome to our shop</h1>
+                <p class="lead">Using this menu you can quickly navigate the store</p>
+            </div>
+        </div></h1>
+    </center>
+<body>
+    <center>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <form style="margin:  20px" th:action="@{/shop/products}" method="get">&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success" type="submit">Show our products</button>
+                </form>
+                <br>
+                <form style="margin-top: 20px" th:action="@{/shop/customers}" method="get">
+                    <button class="btn btn-success" type="submit">Show all customers</button>
+                </form>
+            </div>
+        </div>
+    </center>
+</body>
+</html>

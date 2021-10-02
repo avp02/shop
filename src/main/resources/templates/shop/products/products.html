@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+    <center><h1>All products</h1></center>
+    <div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Carts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product:${products}">
+                    <td th:text="${product.getId()}"></td>
+                    <td th:text="${product.getName()}"></td>
+                    <td th:text="${product.getDescription()}"/>
+                    <td th:text="${product.getPrice()}"/>
+                    <td>
+                        <a th:href="@{/shop/products/{id}(id=${product.getId()})}">show photo</a>
+                    </td>
+                    <td th:text="${product.getCarts()}"/>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/shop}">Back to main menu</a>
+</body>
+</html>

@@ -9,36 +9,32 @@
 <center>
     <h1>All customers</h1>
 </center>
+<br>
+<center>
+    <a th:href="@{/shop/customers/new}">Create new customer</a>
+</center>
+<br>
 <div>
     <table class="table table-success table-striped">
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Name</th>
                 <th scope="col">UserName</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Email</th>
                 <th scope="col">Link of moving to customer</th>
-                <th scope="col">Link of moving to customers cart</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="customer : ${customers}">
                 <td th:text="${customer.getId()}">id</td>
-                <td th:text="${customer.getName()}">name</td>
                 <td th:text="${customer.getUserName()}">userName</td>
-                <td th:text="${customer.getPhone()}">phone</td>
-                <td th:text="${customer.getEmail()}">email</td>
                 <td>
                     <a th:href="@{/shop/customers/{id}(id=${customer.getId()})}">Move to customer</a>
                 </td>
-                <td>
-                    <a th:href="@{/shop/carts/{id}(id=${customer.getId()})}">Move to customers cart</a>
-                </td>
+
             </tr>
         </tbody>
     </table>
 </div>
-
+<a th:href="@{/shop}">Back to main menu</a>
 </body>
 </html>
