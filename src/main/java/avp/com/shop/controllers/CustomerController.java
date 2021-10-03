@@ -55,4 +55,11 @@ public class CustomerController {
         ModelAndView modelAndView = new ModelAndView("redirect:/shop/customers/{id}");
         return modelAndView;
     }
+
+    @RequestMapping("/{id}/delete")
+    public ModelAndView deleteCustomer(@PathVariable(name = "id") Long id) {
+        customerService.deleteCustomer(id);
+        ModelAndView modelAndView = new ModelAndView("redirect:/shop/customers");
+        return modelAndView;
+    }
 }

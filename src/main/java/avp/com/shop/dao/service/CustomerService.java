@@ -26,4 +26,8 @@ public class CustomerService {
     public void updateCustomer(Long id, String name, String userName, String phone, String email) {
         customerRepository.updateCustomer(id, name, userName, phone, email);
     }
+
+    public void deleteCustomer(Long id) {
+        customerRepository.deleteCustomer(id);
+    }
 }

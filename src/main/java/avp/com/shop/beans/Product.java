@@ -4,13 +4,15 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Data
-@Builder
+//@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "products")
@@ -21,16 +23,18 @@ public class Product implements Serializable {
     @Column(nullable = false)
     private Long id;
 
-    @NotNull(message = "Name should not be empty")
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name's size should be from 2 to 30 characters")
     @Column(nullable = false, unique = true)
     private String name;
 
-    @NotNull(message = "Description should not be empty")
-    @Min(value = 10, message = "Description should be more 10 characters")
+    @NotEmpty(message = "Description should not be empty")
+    @Size(min = 2, max = 30, message = "Name's size should be from 2 to 30 characters")
     @Column(nullable = false)
     private String description;
 
-    @NotNull(message = "Price should not be empty")
+    @NotEmpty(message = "Price should not be empty")
+    @Min(value = 1, message = "The price should not be equals 0")
     @Column(nullable = false)
     private Double price;
 

@@ -19,6 +19,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Link of moving to customers cart</th>
                     <th scope="col">Update customer</th>
+                    <th scope="col">Delete customer</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,9 @@
                     </td>
                     <td>
                         <a th:href="@{/shop/customers/{id}/edit(id=${customer.getId()})}" th:text="'Update customer with userName ' + ${customer.getUserName()}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/shop/customers/{id}/delete(id=${customer.getId()})}" th:text="'Delete ' + ${customer.getUserName()}"></a>
                     </td>
                 </tr>
             </tbody>

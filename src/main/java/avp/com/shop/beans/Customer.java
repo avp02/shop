@@ -1,16 +1,19 @@
 package avp.com.shop.beans;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
 @Data
-@Builder
+//@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "customers")
@@ -22,21 +25,21 @@ public class Customer implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    @NotNull(message = "Enter name please")
-    @Min(value = 2, message = "Name should be more then 2 characters")
+    @NotEmpty(message = "Enter name please")
+    @Size(min = 2, max = 30, message = "Name should be more then 2 characters")
     private String name;
 
     @Column(nullable = false, unique = true)
-    @NotNull(message = "Enter username please")
-    @Min(value = 2, message = "Name should be more then 5 characters")
+    @NotEmpty(message = "Enter username please")
+    @Size(min = 2, max = 30, message = "Name should be more then 5 characters")
     private String userName;
 
-    @NotNull(message = "Phone should not be empty")
+    @NotEmpty(message = "Phone should not be empty")
     @Column(nullable = false)
     private String phone;
 
     @Email(message = "Check your email")
-    @NotNull(message = "Email should not be empty")
+    @NotEmpty(message = "Email should not be empty")
     @Column(nullable = false)
     private String email;
 }

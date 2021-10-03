@@ -14,4 +14,9 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Modifying
     @Query(value = "UPDATE customers SET name=?2, user_name=?3, phone=?4, email=?5 WHERE id=?1", nativeQuery = true)
     void updateCustomer(Long id, String name, String userName, String phone, String email);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM customers WHERE id=?1", nativeQuery = true)
+    void deleteCustomer(Long id);
 }
