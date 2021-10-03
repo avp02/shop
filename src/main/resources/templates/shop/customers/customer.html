@@ -18,6 +18,7 @@
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">Link of moving to customers cart</th>
+                    <th scope="col">Update customer</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +29,10 @@
                     <td th:text="${customer.getPhone()}">phone</td>
                     <td th:text="${customer.getEmail()}">email</td>
                     <td>
-                        <a th:href="@{/shop/carts/{id}(id=${customer.getId()})}" th:text="'Move to cart of ' + ${customer.getName()}">Move to customers cart</a>
+                        <a th:href="@{/shop/carts/{id}(id=${customer.getId()})}" th:text="'Move to cart of ' + ${customer.getUserName()}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/shop/customers/{id}/edit(id=${customer.getId()})}" th:text="'Update customer with userName ' + ${customer.getUserName()}"></a>
                     </td>
                 </tr>
             </tbody>

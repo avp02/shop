@@ -23,5 +23,6 @@
             </tbody>
         </table>
     </div>
+    <a th:href="@{/shop/customers/{id}(id=${customer.getId()})}" th:text="'Back to page ' + ${customer.getUserName()}"></a>
 </body>
 </html>

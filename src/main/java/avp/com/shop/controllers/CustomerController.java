@@ -3,6 +3,8 @@ package avp.com.shop.controllers;
 import avp.com.shop.beans.Customer;
 import avp.com.shop.dao.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,13 +29,6 @@ public class CustomerController {
         return modelAndView;
     }
 
-//    @GetMapping("/new")
-//    public ModelAndView createFormForNewCustomer() {
-//        ModelAndView modelAndView = new ModelAndView("shop/customers/new");
-//        modelAndView.addObject("customer", new Customer());
-//        return modelAndView;
-//    }
-
     @GetMapping("/new")
     public ModelAndView createFormForNewCustomer(@ModelAttribute("customer") Customer customer) {
         ModelAndView modelAndView = new ModelAndView("shop/customers/new");
@@ -41,9 +36,23 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public ModelAndView createNewCustomer(@ModelAttribute(name = "Customer") Customer customer) {
+    public ModelAndView createNewCustomer(@ModelAttribute(name = "customer") Customer customer) {
         customerService.saveCustomer(customer);
         ModelAndView modelAndView = new ModelAndView("redirect:/shop/customers");
+        return modelAndView;
+    }
+
+    @GetMapping("/{id}/edit")
+    public ModelAndView showFormForUpdateCustomer(@ModelAttribute("customer") Customer customer, @PathVariable(name = "id") Long id, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView("/shop/customers/edit");
+        modelAndView.addObject("customer", customerService.findCustomerById(id));
+        return modelAndView;
+    }
+
+    @PostMapping("/{id}")
+    public ModelAndView updateCustomer(@PathVariable("id") Long id, @ModelAttribute(name = "customer") Customer customer) {
+        customerService.updateCustomer(id, customer.getName(), customer.getUserName(), customer.getPhone(), customer.getEmail());
+        ModelAndView modelAndView = new ModelAndView("redirect:/shop/customers/{id}");
         return modelAndView;
     }
 }

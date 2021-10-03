@@ -23,4 +23,7 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
+    public void updateCustomer(Long id, String name, String userName, String phone, String email) {
+        customerRepository.updateCustomer(id, name, userName, phone, email);
+    }
 }
