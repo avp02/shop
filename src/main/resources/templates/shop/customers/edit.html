@@ -8,18 +8,22 @@
     <form th:method="PATCH" th:action="@{/shop/customers/{id}(id=${customer.getId()})}" th:object="${customer}">
         <label for="name">Update name </label>
         <input type="text" th:field="*{name}" id="name"/>
+        <div style="color: blue" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
         <br>
         <br>
         <label for="userName">Update userName </label>
         <input type="text" th:field="*{userName}" id="userName">
+        <div style="color: blue" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">UserNAme error</div>
         <br>
         <br>
         <label for="phone">Update phone </label>
         <input type="text" th:field="*{phone}" id="phone"/>
+        <div style="color: blue" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</div>
         <br>
         <br>
         <label for="email">Update email </label>
         <input type="text" th:field="*{email}" id="email">
+        <div style="color: blue" th:if="${#fields.hasErrors('email')}" th:errors="*{phone}">Email error</div>
         <br>
         <br>
         <input type="submit" value="Update customer!!!">

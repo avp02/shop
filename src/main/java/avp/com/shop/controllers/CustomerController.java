@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/shop/customers")
@@ -36,9 +38,13 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public ModelAndView createNewCustomer(@ModelAttribute(name = "customer") Customer customer) {
+    public ModelAndView createNewCustomer(@ModelAttribute(name = "customer") @Valid Customer customer, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView("/shop/customers/new");
+        if (bindingResult.hasErrors()) {
+            return modelAndView;
+        }
         customerService.saveCustomer(customer);
-        ModelAndView modelAndView = new ModelAndView("redirect:/shop/customers");
+        modelAndView.setViewName("redirect:/shop/customers");
         return modelAndView;
     }
 
@@ -50,9 +56,13 @@ public class CustomerController {
     }
 
     @PostMapping("/{id}")
-    public ModelAndView updateCustomer(@PathVariable("id") Long id, @ModelAttribute(name = "customer") Customer customer) {
+    public ModelAndView updateCustomer(@PathVariable("id") Long id, @ModelAttribute(name = "customer") @Valid Customer customer, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView("/shop/customers/edit");
+        if (bindingResult.hasErrors()) {
+            return modelAndView;
+        }
         customerService.updateCustomer(id, customer.getName(), customer.getUserName(), customer.getPhone(), customer.getEmail());
-        ModelAndView modelAndView = new ModelAndView("redirect:/shop/customers/{id}");
+        modelAndView.setViewName("redirect:/shop/customers/{id}");
         return modelAndView;
     }
 

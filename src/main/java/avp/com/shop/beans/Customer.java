@@ -26,15 +26,16 @@ public class Customer implements Serializable {
 
     @Column(nullable = false)
     @NotEmpty(message = "Enter name please")
-    @Size(min = 2, max = 30, message = "Name should be more then 2 characters")
+    @Size(min = 2, max = 30, message = "Name should be should be between from 2 to 30 characters")
     private String name;
 
     @Column(nullable = false, unique = true)
     @NotEmpty(message = "Enter username please")
-    @Size(min = 2, max = 30, message = "Name should be more then 5 characters")
+    @Size(min = 2, max = 30, message = "UserName should be between from 2 to 30 characters")
     private String userName;
 
     @NotEmpty(message = "Phone should not be empty")
+    @Size(min = 3, max = 30, message = "Phone should be between from 3 to 30 characters")
     @Column(nullable = false)
     private String phone;
 

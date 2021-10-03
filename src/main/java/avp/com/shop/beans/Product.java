@@ -29,7 +29,7 @@ public class Product implements Serializable {
     private String name;
 
     @NotEmpty(message = "Description should not be empty")
-    @Size(min = 2, max = 30, message = "Name's size should be from 2 to 30 characters")
+    @Size(min = 2, max = 30, message = "Description's size should be from 2 to 30 characters")
     @Column(nullable = false)
     private String description;
 
