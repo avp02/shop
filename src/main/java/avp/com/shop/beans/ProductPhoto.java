@@ -4,12 +4,11 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
 @Data
-//@Builder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product_photos")

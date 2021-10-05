@@ -2,6 +2,7 @@ package avp.com.shop.dao.repository;
 
 import avp.com.shop.beans.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,5 +19,11 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
     @Transactional
     @Query(value = "select c.userName from Customer c inner join Cart ca on c.id=ca.customer.id where c.id=?1")
     String findUserNameCustomerById(Long id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "insert into carts values (?1, ?1)", nativeQuery = true)
+    void saveCartOfCustomer(Long id);
+
 
 }

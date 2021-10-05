@@ -1,6 +1,7 @@
 package avp.com.shop.controllers;
 
 import avp.com.shop.beans.Customer;
+import avp.com.shop.dao.service.CartService;
 import avp.com.shop.dao.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
@@ -16,6 +17,8 @@ import javax.validation.Valid;
 public class CustomerController {
 
     private final CustomerService customerService;
+
+    private final CartService cartService;
 
     @GetMapping()
     public ModelAndView allCustomers() {
@@ -44,6 +47,7 @@ public class CustomerController {
             return modelAndView;
         }
         customerService.saveCustomer(customer);
+        cartService.saveCartOfCustomer(customer.getId());
         modelAndView.setViewName("redirect:/shop/customers");
         return modelAndView;
     }

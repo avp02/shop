@@ -1,5 +1,6 @@
 package avp.com.shop.dao.service;
 
+import avp.com.shop.beans.Cart;
 import avp.com.shop.beans.Customer;
 import avp.com.shop.dao.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;

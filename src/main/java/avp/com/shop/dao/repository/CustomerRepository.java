@@ -10,6 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
+//    @Override
+//    @Transactional
+//    @Query(value = "select ")
+//    void save(Customer customer);
+
     @Transactional
     @Modifying
     @Query(value = "UPDATE customers SET name=?2, user_name=?3, phone=?4, email=?5 WHERE id=?1", nativeQuery = true)

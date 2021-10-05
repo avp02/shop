@@ -26,6 +26,10 @@ public class CartService {
         return cartRepository.findAllProductNamesForCartById(id);
     }
 
+    public void saveCartOfCustomer(Long id) {
+        cartRepository.saveCartOfCustomer(id);
+    }
+
     public String findUserNameCustomerById(Long id) {
         return cartRepository.findUserNameCustomerById(id);
     }
